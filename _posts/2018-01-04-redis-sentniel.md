@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Redis 哨兵搭建与管理
-date: 2018-01-08
+date: 2018-01-04
 categories: blog
 tags: [Redis]
 description: 哨兵搭建与管理
