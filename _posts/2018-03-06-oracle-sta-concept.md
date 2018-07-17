@@ -11,7 +11,7 @@ description: Oracle SQL TUNING ADVISOR
 
 STA(SQL Tuning Advisor )是Oracle提供的sql诊断工具.用户可以提交一条或多条SQL 语句到STA,STA会给出建议.
 
-![image](http://docs.oracle.com/database/122/TGSQL/img/GUID-C68EB29D-C836-4100-9A51-740F4BAB3468-default.png)
+![image](http://wx3.sinaimg.cn/mw690/006Pv9mtly1ftcwv8vx1wj30dr0huq53.jpg)
 
 
 
@@ -38,7 +38,7 @@ STA生成优化建议最核心的部分由Automatic Tuning Optimizer来完成.
 优化器在生成执行计划时依赖于统计信息.如果这些统计信息过期或者缺失,优化器就可能非最优的执行计划.
 而 ATO会检查SQL语句引用对象的统计信息是否缺失或过期.
 
-![image](http://docs.oracle.com/database/122/TGSQL/img/GUID-393CE047-E82A-4AAA-8CDF-B09012ECECF0-default.png)
+![image](http://wx2.sinaimg.cn/mw690/006Pv9mtly1ftcwx6r165j309e0bq766.jpg)
 
 
 
@@ -50,12 +50,12 @@ SQL profile 是ATO对其自己估算结果的验证集.
 当用户向STA中提交SQL语句,自动调整优化器 (Automatic Tuning Optimizer )生成SQL profile.
 如果SQL profile被使用,则可以获取优化后的执行计划. 在整个过程中,应用代码都不会被改变.
 
-![image](http://docs.oracle.com/database/122/TGSQL/img/GUID-AEE97954-92F7-479F-946C-562DC0323B24-default.png)
+![image](http://wx1.sinaimg.cn/mw690/006Pv9mtly1ftcxl1iwgrj30gw0d6di7.jpg)
 
 
 SQL profile只支持 SELECT ,INSERT SELECT ,UPDATE ,DELETE,MERGE , CREATE TABLE AS SELECT  . 在评估后STA会作出决定是否推荐使用SQL PROFILE .
 
-![image](http://wx3.sinaimg.cn/mw690/006Pv9mtly1ftcwv8vx1wj30dr0huq53.jpg)
+![image](http://wx1.sinaimg.cn/mw690/006Pv9mtly1ftcxmurxuej30c60blac2.jpg)
 
 
 如果优化器在统计信息分析或计算SQL profile 是生成了辅助信息,则优化器会推荐使用SQL Pfile.
@@ -68,7 +68,7 @@ SQL profile只支持 SELECT ,INSERT SELECT ,UPDATE ,DELETE,MERGE , CREATE TABLE 
 如果为 auto,则如果sql 语句存在一个sql profile该值取为true.
 反之则为flase ,直到满足前面的条件.
 
-![image](http://wx2.sinaimg.cn/mw690/006Pv9mtly1ftcwx6r165j309e0bq766.jpg)
+![image](http://wx4.sinaimg.cn/mw690/006Pv9mtly1ftcxoms5g0j30hq05w3yn.jpg)
 
 
 
