@@ -527,6 +527,7 @@ mysql>  EXPLAIN
 
 
 ####  system
+
 根据官档所说 这种方式属于一种特殊的const 要求表中只有一条记录
 
 ```sql
@@ -746,9 +747,9 @@ mysql> explain
 ```
 ####  index
 
-```sql
 
 索引全扫描  正常情况下应该在在没有过滤谓词时出现
+```sql
 
 mysql> EXPLAIN SELECT OBJECT_NAME FROM DAO_OBJECTS1  ORDER BY OBJECT_NAME DESC ;
 +----+-------------+--------------+-------+---------------+---------------+---------+------+-------+-------------+
@@ -764,9 +765,10 @@ mysql> EXPLAIN SELECT OBJECT_NAME FROM DAO_OBJECTS1  ORDER BY OBJECT_NAME DESC ;
 #### ALL
 
 
+全表扫描
+
 ```sql
 
-全表扫描
 
 mysql> EXPLAIN SELECT OBJECT_TYPE FROM DAO_OBJECTS1 
     -> ;
@@ -813,12 +815,11 @@ mysql> EXPLAIN SELECT * FROM DAO_OBJECTS1 WHERE OBJECT_NAME = 'DBA_TABLES' AND O
 +----+-------------+--------------+-------------+-----------------------------+-----------------------------+---------+------+------+-----------------------------------------------------------+
 1 row in set (0.01 sec)
 
-注意:这里possible_keys中并没有出现PRIMARY
-     但是我仍然感叹与MySQL中index merge 出现的频率.这可能innodb 存储结构有关系
-
 
 ```
 
+注意:这里possible_keys中并没有出现PRIMARY
+     但是我仍然感叹与MySQL中index merge 出现的频率.这可能innodb 存储结构有关系
 
 ### key
 
@@ -839,11 +840,13 @@ mysql> EXPLAIN SELECT * FROM DAO_OBJECTS1 WHERE OBJECT_NAME = 'DBA_TABLES' ;
 
 ###  key_len
 
-```sql
-
 key_len 计算公式为
 可变长度*字符集位数+(如果可为null+1 否则+0)+2  声明变长字段
 固定字段 int 4 +(not null +1  else 0 )
+
+```sql
+
+
 
 
 mysql> EXPLAIN SELECT * FROM DAO_OBJECTS1 WHERE OBJECT_NAME = 'DBA_TABLES' ;
@@ -941,11 +944,13 @@ mysql> EXPLAIN SELECT COUNT(*) FROM DAO_OBJECTS1 T1 ,DAO_OBJECTS2 T2 WHERE T1.OB
 +----+-------------+-------+--------+---------------+---------+---------+------------------+-------+-------------+
 2 rows in set (0.00 sec)
 
+
+```
+
 第一行 row = 50887 为T2表总大小 
 第二行 row = 1     代表从T2表取一行 到T1表中遍历可获取的行数的大小 
 
 
-```
 
 ### Extra
 
@@ -1084,9 +1089,10 @@ mysql> EXPLAIN EXTENDED
 ####  Impossible WHERE
 
 
+ 谓词不成立
+
 ```sql
 
- 谓词不成立
 
 mysql> EXPLAIN SELECT *  FROM DAO_OBJECTS1 T1  LIMIT 0 ;
 +----+-------------+-------+------+---------------+------+---------+------+------+------------------+
