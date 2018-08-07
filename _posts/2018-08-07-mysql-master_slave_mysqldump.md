@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 使用mysqldump搭建主从
+title: 使用mysqldump在线搭建主从
 date: 2018-08-07
 categories: blog
 tags: [MySQL]
-description: 使用mysqldump搭建主从
+description: 使用mysqldump在线搭建主从
 ---
 
 
