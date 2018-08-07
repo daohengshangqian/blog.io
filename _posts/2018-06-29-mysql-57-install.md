@@ -8,6 +8,7 @@ description: MySQL5.7安装
 ---
 
 ## 创建文件夹
+
 ···sql
 [root@dao ~]# mkdir /usr/local/mysql
 [root@dao ~]# mkdir -p /data/mysql3306/data
@@ -39,6 +40,7 @@ drwxr-xr-x. 2 root root      4096 Nov  5  2015 Videos
 
 ```
 ## 复制到相关目录
+
 ```sql
 [root@dao ~]# cp -r mysql-5.7.21-linux-glibc2.12-x86_64/* /usr/local/mysql
 ```
@@ -93,9 +95,9 @@ event_scheduler = 1
 server-id=1383306
 port=3306
 symbolic-links=0 
-sysdate-is-now #MySQL??sysdate()??now()??????
-show_compatibility_56=on #?mysql5.7.6??information_schema.global_status???????,?????,??????
-back_log=1000 #?????mysql??????????????????????????????????/proc/sys/net/ipv4/tcp_max_syn_backlog,??????
+sysdate-is-now 
+show_compatibility_56=on 
+back_log=1000 
 
 # connection #
 interactive_timeout = 200
@@ -198,7 +200,7 @@ query_cache_size=0
 master_info_repository = TABLE
 relay_log_info_repository = TABLE
 sync_binlog = 1
-sync-relay-log =0 #??1?????????????
+sync-relay-log =0 
 sync-relay-log-info =0 #??relay_log_info_repository = TABLE,?mysql.slave_relay_log_info?innodb?,???????1,????innodb??N?
 gtid_mode = on
 enforce_gtid_consistency = 1
@@ -212,17 +214,17 @@ slave_transaction_retries=128
 #slave_skip_errors = ddl_exist_errors
 slave-rows-search-algorithms = 'INDEX_SCAN,HASH_SCAN'
 log-slave-updates=true
-sync-master-info=1  #?master-info-repository?TABLE,????0,????????(?OS??),???1,?????????(??)
+sync-master-info=1  
 binlog-checksum=CRC32
 master-verify-checksum=1
 slave-sql-verify-checksum=1
-slave_preserve_commit_order=1 #?????slaves,??????slave???????relay log????????,???Â“slave_parallel_workersÂ”?????
+slave_preserve_commit_order=1 
 read_only=0
 
 # GTID settings #
 gtid-mode=on
 enforce-gtid-consistency=true
-binlog_gtid_simple_recovery=1 #????????,???mysql????????????mysql-server???binlog???????
+binlog_gtid_simple_recovery=1 
 
 # SEMI Replication setting
 plugin-load="rpl_semi_sync_master=semisync_master.so;rpl_semi_sync_slave=semisync_slave.so"
@@ -265,13 +267,13 @@ export PATH
 ## 初始化Mysql
 
 ```sql
-[root@dao ~]# /usr/local/mysql/bin/mysqld --defaults-file=/etc/my.cnf --initialize-insecure --basedir=/usr/local/mysql --datadir=/data/mysql3306/data/ --user=mysql
+[mysql@dao ~]# /usr/local/mysql/bin/mysqld --defaults-file=/etc/my.cnf --initialize-insecure --basedir=/usr/local/mysql --datadir=/data/mysql3306/data/ --user=mysql
 
 ```
 ## 启动Mysql
 
 ```sql
-[root@dao ~]# /usr/local/mysql/bin/mysqld_safe --defaults-file=/etc/my.cnf  --user=mysql 
+[mysql@dao ~]# /usr/local/mysql/bin/mysqld_safe --defaults-file=/etc/my.cnf  --user=mysql 
 2018-06-29T11:31:29.540583Z mysqld_safe Logging to '/data/mysql3306/logs/error.log'.
 2018-06-29T11:31:29.583012Z mysqld_safe Starting mysqld daemon with databases from /data/mysql3306/data
 ```
@@ -281,7 +283,7 @@ export PATH
 
 ```sql
 
-[root@dao ~]# /usr/local/mysql/bin/mysql 
+[mysql@dao ~]# /usr/local/mysql/bin/mysql 
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 3
 Server version: 5.7.21-log MySQL Community Server (GPL)
@@ -294,10 +296,10 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-[root@localhost][(none)]> 
+[mysql@localhost][(none)]> 
 
 
-[root@localhost][(none)]> Alter user root@'localhost' identified by 'root' ;
+[mysql@localhost][(none)]> Alter user root@'localhost' identified by 'root' ;
 Query OK, 0 rows affected (0.01 sec)
 
 
