@@ -7,15 +7,7 @@ tags: [MySQL]
 description: 使用mysqldump在线搭建主从
 ---
 
-## 对主库进行备份
 
-```sql
-
-[mysql@node1 mysql1]$ mysqldump -uroot -proot -S /tmp/mysql1.sock  --master-data=2 --single-transaction -A >/home/mysql/slavedata.sql
-mysqldump: [Warning] Using a password on the command line interface can be insecure.
-
-
-```
 ## 查看主库配置文件
 
 ```sql
