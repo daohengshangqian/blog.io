@@ -9,6 +9,9 @@ description: 使用innobackupex在线搭建级联复制
 
 
 
+## 架构图如下
+
+![集群结构图](http://wx1.sinaimg.cn/mw690/006Pv9mtly1fu29iqohdfj30kz080glp.jpg)
 
 
 
