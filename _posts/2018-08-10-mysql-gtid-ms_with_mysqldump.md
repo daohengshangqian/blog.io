@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 使用MysqlDump搭建GITD主从
+title: 使用MysqlDump搭建GTID主从
 date: 2018-08-10
 categories: blog
 tags: [MySQL]
-description: 使用MysqlDump搭建GITD主从
+description: 使用MysqlDump搭建GTID主从
 ---
 
 ## 查看实例uuid
