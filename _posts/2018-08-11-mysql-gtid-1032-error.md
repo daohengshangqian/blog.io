@@ -6,6 +6,7 @@ categories: blog
 tags: [MySQL]
 description: MySQL GTID模式下1032错误详解
 ---
+
 ## 1032 错误
 
 
@@ -330,6 +331,7 @@ Master_SSL_Verify_Server_Cert: No
 1 row in set (0.00 sec)
 ```
 
+
 ### 使用工具同步缺失数据
 
 #### 跳过错误
@@ -422,7 +424,9 @@ Master_SSL_Verify_Server_Cert: No
 #### 使用工具查找缺失数据
 
 - 主库运行数据检查工具
+
 ```sql
+
 [mysql@node1 ~]$  pt-table-checksum --host='192.168.2.61' --user=dao --password=dao --create-replicate-table  --nocheck-replication-filters --replicate=test.checksums   --no-check-binlog-format --databases=test
             TS ERRORS  DIFFS     ROWS  CHUNKS SKIPPED    TIME TABLE
 08-11T17:30:10      0      1        2       1       0   0.286 test.t1
@@ -465,7 +469,7 @@ mysql> select * from test.t1 ;
 
 ```
 
--从库 
+- 从库 
 
 ```sql
 
