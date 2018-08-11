@@ -6,9 +6,6 @@ categories: blog
 tags: [MySQL]
 description: MySQL GTID模式下1032错误详解
 ---
-
-
-
 ## 1032 错误
 
 
@@ -211,7 +208,7 @@ DELIMITER ;
 
 
 ```
-- 找到引发报错的日志
+- 找到引发报错的数据
 
 ```sql
 mysql> desc test.t1 ;
@@ -223,8 +220,7 @@ mysql> desc test.t1 ;
 +-------+---------+------+-----+---------+-------+
 2 rows in set (0.01 sec)
 
-mysql> select * from t1 where c1=1 ;
-ERROR 1046 (3D000): No database selected
+
 mysql> select * from test.t1 where c1=1 ;
 +----+------+
 | c1 | c2   |
