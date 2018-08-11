@@ -329,53 +329,6 @@ Master_SSL_Verify_Server_Cert: No
            Master_TLS_Version: 
 1 row in set (0.00 sec)
 ```
-#### 使用参数跳过错误
-
-- 此种方式仅仅是跳过错误,两边数据并不同步
-
-- 从库设置skip-slave-errors参数
-
-```sql
-
-
-```
-
-- 查看同步状态
-
-```sql
-
-
-
-```
-- 查看主库数据
-
-```sql
-
-mysql> select * from test.t1 ;
-+----+------+
-| c1 | c2   |
-+----+------+
-|  1 |   11 |
-|  2 |    2 |
-+----+------+
-2 rows in set (0.00 sec)
-
-```
-
-- 查看从库数据
-
-```sql
-
-mysql> select * from test.t1 ;
-+----+------+
-| c1 | c2   |
-+----+------+
-|  2 |    2 |
-+----+------+
-1 row in set (0.00 sec)
-
-
-```
 
 ### 使用工具同步缺失数据
 
