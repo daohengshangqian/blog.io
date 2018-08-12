@@ -7,6 +7,7 @@ tags: [MySQL]
 description: MySQL GTID模式下1062错误详解
 ---
 
+
 ## 错误模拟
 
 ### 查看主库从库数据
@@ -153,7 +154,10 @@ Query OK, 1 row affected (0.27 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 ```
+
 - 跳过GTID
+
+
 ```sql
 
 mysql>  SET @@SESSION.GTID_NEXT= '03fde241-9a55-11e8-aa12-000c291f013a:15' ;
@@ -171,11 +175,13 @@ Query OK, 0 rows affected (0.00 sec)
 - 开启复制
 
 ```sql
+
 mysql> start slave ;
 Query OK, 0 rows affected (0.01 sec)
 
 ```
 - 查看复制状态
+
 ```sql
 
 mysql> show slave status \G;
@@ -245,7 +251,7 @@ f63b765b-9c1d-11e8-aa1e-005056296858:1-3
 ### 使用工具同步数据
 
 - 跳过错误
-- 
+
 ```sql
 
 
