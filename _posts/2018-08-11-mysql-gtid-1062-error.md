@@ -275,7 +275,7 @@ mysql> start slave ;
 Query OK, 0 rows affected (0.08 sec)
 
 ```
--查看同步状态
+- 查看同步状态
 
 ```sql
 
