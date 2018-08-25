@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MySQL MHA常见问题汇总
-date: 2018-08-23
+date: 2018-08-24
 categories: blog
 tags: [MySQL]
 description: MySQL MHA常见问题汇总
