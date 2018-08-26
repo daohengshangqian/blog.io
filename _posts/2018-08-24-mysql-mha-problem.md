@@ -850,3 +850,44 @@ MySQL Replication Health is OK.
  
  
  ```
+
+##  Getting advisory lock failed on the current master. MHA Monitor runs on the current master.
+
+### 问题表现
+
+```sql
+
+
+[root@node3 bin]#  masterha_master_switch --master_state=alive --conf=/etc/mha/app1/app1.cnf   --new_master_host=node2
+Fri Aug 24 17:56:42 2018 - [info] MHA::MasterRotate version 0.57.
+Fri Aug 24 17:56:42 2018 - [info] Starting online master switch..
+Fri Aug 24 17:56:42 2018 - [info]
+Fri Aug 24 17:56:42 2018 - [info] * Phase 1: Configuration Check Phase..
+Fri Aug 24 17:56:42 2018 - [info]
+Fri Aug 24 17:56:42 2018 - [warning] Global configuration file /etc/masterha_default.cnf not found. Skipping.
+Fri Aug 24 17:56:42 2018 - [info] Reading application default configuration from /etc/mha/app1/app1.cnf..
+Fri Aug 24 17:56:42 2018 - [info] Reading server configuration from /etc/mha/app1/app1.cnf..
+Fri Aug 24 17:56:43 2018 - [info] GTID failover mode = 0
+Fri Aug 24 17:56:43 2018 - [info] Current Alive Master: 192.168.2.61(192.168.2.61:3306)
+Fri Aug 24 17:56:43 2018 - [info] Alive Slaves:
+Fri Aug 24 17:56:43 2018 - [info]   192.168.2.62(192.168.2.62:3306)  Version=5.7.21-log (oldest major version between slaves) log-bin:enabled
+Fri Aug 24 17:56:43 2018 - [info]     Replicating from node1(192.168.2.61:3306)
+Fri Aug 24 17:56:43 2018 - [info]     Primary candidate for the new Master (candidate_master is set)
+Fri Aug 24 17:56:43 2018 - [info]   192.168.2.63(192.168.2.63:3306)  Version=5.7.21-log (oldest major version between slaves) log-bin:enabled
+Fri Aug 24 17:56:43 2018 - [info]     Replicating from 192.168.2.61(192.168.2.61:3306)
+Fri Aug 24 17:56:43 2018 - [info]     Not candidate for the new Master (no_master is set)
+
+It is better to execute FLUSH NO_WRITE_TO_BINLOG TABLES on the master before switching. Is it ok to execute on 192.168.2.61(192.168.2.61:3306)? (YES/no): yes
+Fri Aug 24 17:56:55 2018 - [info] Executing FLUSH NO_WRITE_TO_BINLOG TABLES. This may take long time..
+Fri Aug 24 17:56:55 2018 - [info]  ok.
+Fri Aug 24 17:56:55 2018 - [info] Checking MHA is not monitoring or doing failover..
+Fri Aug 24 17:56:55 2018 - [error][/usr/local/share/perl5/MHA/MasterRotate.pm, ln142] Getting advisory lock failed on the current master. MHA Monitor runs on the current master. Stop MHA Manager/Monitor and try again.
+Fri Aug 24 17:56:55 2018 - [error][/usr/local/share/perl5/MHA/ManagerUtil.pm, ln177] Got ERROR:  at /usr/local/bin/masterha_master_switch line 53
+
+```
+
+### 解决方法
+
+停止MHA Monitor
+
+### 问题验证
