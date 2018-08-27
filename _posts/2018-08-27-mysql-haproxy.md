@@ -8,15 +8,7 @@ description: MySQL 使用Haproxy进行负载均衡
 ---
 
 
-## 架构图
 
-```
-graph TD
-    A[APP] --> B{haproxy}
-    B --> | IP1 |C[node1]
-    B --> | IP2 |D[node2]
-
-```
 ## 安装haproxy
 
 ### 解压haproxy
