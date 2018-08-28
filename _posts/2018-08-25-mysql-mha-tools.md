@@ -8,6 +8,7 @@ description: MySQL MHA工具包汇总
 ---
 
 
+
 ## 概述
 
 - Manager工具包
@@ -43,10 +44,120 @@ save_binary_logs      | 保存和复制master的二进制日志。
 
 ```sql
 
+
+[root@node3 mha]# /etc/mha/mhamanager/bin/masterha_check_repl --conf=/etc/mha/app1/app1.cnf
+Fri Aug 24 02:00:33 2018 - [warning] Global configuration file /etc/masterha_default.cnf not found. Skipping.
+Fri Aug 24 02:00:33 2018 - [info] Reading application default configuration from /etc/mha/app1/app1.cnf..
+Fri Aug 24 02:00:33 2018 - [info] Reading server configuration from /etc/mha/app1/app1.cnf..
+Fri Aug 24 02:00:33 2018 - [info] MHA::MasterMonitor version 0.57.
+Fri Aug 24 02:00:33 2018 - [info] GTID failover mode = 0
+Fri Aug 24 02:00:33 2018 - [info] Dead Servers:
+Fri Aug 24 02:00:33 2018 - [info] Alive Servers:
+Fri Aug 24 02:00:33 2018 - [info]   192.168.2.61(192.168.2.61:3306)
+Fri Aug 24 02:00:33 2018 - [info]   192.168.2.62(192.168.2.62:3306)
+Fri Aug 24 02:00:33 2018 - [info]   192.168.2.63(192.168.2.63:3306)
+Fri Aug 24 02:00:33 2018 - [info] Alive Slaves:
+Fri Aug 24 02:00:33 2018 - [info]   192.168.2.61(192.168.2.61:3306)  Version=5.7.21-log (oldest major version between slaves) log-bin:enabled
+Fri Aug 24 02:00:33 2018 - [info]     Replicating from 192.168.2.62(192.168.2.62:3306)
+Fri Aug 24 02:00:33 2018 - [info]     Primary candidate for the new Master (candidate_master is set)
+Fri Aug 24 02:00:33 2018 - [info]   192.168.2.63(192.168.2.63:3306)  Version=5.7.21-log (oldest major version between slaves) log-bin:enabled
+Fri Aug 24 02:00:33 2018 - [info]     Replicating from 192.168.2.62(192.168.2.62:3306)
+Fri Aug 24 02:00:33 2018 - [info]     Not candidate for the new Master (no_master is set)
+Fri Aug 24 02:00:33 2018 - [info] Current Alive Master: 192.168.2.62(192.168.2.62:3306)
+Fri Aug 24 02:00:33 2018 - [info] Checking slave configurations..
+Fri Aug 24 02:00:33 2018 - [info]  read_only=1 is not set on slave 192.168.2.61(192.168.2.61:3306).
+Fri Aug 24 02:00:33 2018 - [warning]  relay_log_purge=0 is not set on slave 192.168.2.61(192.168.2.61:3306).
+Fri Aug 24 02:00:33 2018 - [info]  read_only=1 is not set on slave 192.168.2.63(192.168.2.63:3306).
+Fri Aug 24 02:00:33 2018 - [warning]  relay_log_purge=0 is not set on slave 192.168.2.63(192.168.2.63:3306).
+Fri Aug 24 02:00:33 2018 - [info] Checking replication filtering settings..
+Fri Aug 24 02:00:33 2018 - [info]  binlog_do_db= , binlog_ignore_db= 
+Fri Aug 24 02:00:33 2018 - [info]  Replication filtering check ok.
+Fri Aug 24 02:00:33 2018 - [info] GTID (with auto-pos) is not supported
+Fri Aug 24 02:00:33 2018 - [info] Starting SSH connection tests..
+Fri Aug 24 02:00:35 2018 - [info] All SSH connection tests passed successfully.
+Fri Aug 24 02:00:35 2018 - [info] Checking MHA Node version..
+Fri Aug 24 02:00:36 2018 - [info]  Version check ok.
+Fri Aug 24 02:00:36 2018 - [info] Checking SSH publickey authentication settings on the current master..
+Fri Aug 24 02:00:36 2018 - [info] HealthCheck: SSH to 192.168.2.62 is reachable.
+Fri Aug 24 02:00:37 2018 - [info] Master MHA Node version is 0.57.
+Fri Aug 24 02:00:37 2018 - [info] Checking recovery script configurations on 192.168.2.62(192.168.2.62:3306)..
+Fri Aug 24 02:00:37 2018 - [info]   Executing command: save_binary_logs --command=test --start_pos=4 --binlog_dir=/mysql1/data --output_file=/etc/mha/app1/save_binary_logs_test --manager_version=0.57 --start_file=mysql-bin.000010 
+Fri Aug 24 02:00:37 2018 - [info]   Connecting to root@192.168.2.62(192.168.2.62:22).. 
+  Creating /etc/mha/app1 if not exists..    ok.
+  Checking output directory is accessible or not..
+   ok.
+  Binlog found at /mysql1/data, up to mysql-bin.000010
+Fri Aug 24 02:00:38 2018 - [info] Binlog setting check done.
+Fri Aug 24 02:00:38 2018 - [info] Checking SSH publickey authentication and checking recovery script configurations on all alive slave servers..
+Fri Aug 24 02:00:38 2018 - [info]   Executing command : apply_diff_relay_logs --command=test --slave_user='root' --slave_host=192.168.2.61 --slave_ip=192.168.2.61 --slave_port=3306 --workdir=/etc/mha/app1 --target_version=5.7.21-log --manager_version=0.57 --relay_log_info=/mysql1/data/relay-log.info  --relay_dir=/mysql1/data/  --slave_pass=xxx
+Fri Aug 24 02:00:38 2018 - [info]   Connecting to root@192.168.2.61(192.168.2.61:22).. 
+  Checking slave recovery environment settings..
+    Opening /mysql1/data/relay-log.info ... ok.
+    Relay log found at /mysql1/data, up to node1-relay-bin.000002
+    Temporary relay log file is /mysql1/data/node1-relay-bin.000002
+    Testing mysql connection and privileges..mysql: [Warning] Using a password on the command line interface can be insecure.
+ done.
+    Testing mysqlbinlog output.. done.
+    Cleaning up test file(s).. done.
+Fri Aug 24 02:00:38 2018 - [info]   Executing command : apply_diff_relay_logs --command=test --slave_user='root' --slave_host=192.168.2.63 --slave_ip=192.168.2.63 --slave_port=3306 --workdir=/etc/mha/app1 --target_version=5.7.21-log --manager_version=0.57 --relay_log_info=/mysql1/data/relay-log.info  --relay_dir=/mysql1/data/  --slave_pass=xxx
+Fri Aug 24 02:00:38 2018 - [info]   Connecting to root@192.168.2.63(192.168.2.63:22).. 
+  Checking slave recovery environment settings..
+    Opening /mysql1/data/relay-log.info ... ok.
+    Relay log found at /mysql1/data, up to node3-relay-bin.000010
+    Temporary relay log file is /mysql1/data/node3-relay-bin.000010
+    Testing mysql connection and privileges..mysql: [Warning] Using a password on the command line interface can be insecure.
+ done.
+    Testing mysqlbinlog output.. done.
+    Cleaning up test file(s).. done.
+Fri Aug 24 02:00:38 2018 - [info] Slaves settings check done.
+Fri Aug 24 02:00:38 2018 - [info] 
+192.168.2.62(192.168.2.62:3306) (current master)
+ +--192.168.2.61(192.168.2.61:3306)
+ +--192.168.2.63(192.168.2.63:3306)
+
+Fri Aug 24 02:00:38 2018 - [info] Checking replication health on 192.168.2.61..
+Fri Aug 24 02:00:38 2018 - [info]  ok.
+Fri Aug 24 02:00:38 2018 - [info] Checking replication health on 192.168.2.63..
+Fri Aug 24 02:00:38 2018 - [info]  ok.
+Fri Aug 24 02:00:38 2018 - [info] Checking master_ip_failover_script status:
+Fri Aug 24 02:00:38 2018 - [info]   /etc/mha/master_ip_failover --command=status --ssh_user=root --orig_master_host=192.168.2.62 --orig_master_ip=192.168.2.62 --orig_master_port=3306 
+
+
+IN SCRIPT TEST====/sbin/ifconfig eth0:0 down==/sbin/ifconfig eth0:0 192.168.6.66/24===
+
+Checking the Status of the script.. OK 
+Fri Aug 24 02:00:38 2018 - [info]  OK.
+Fri Aug 24 02:00:38 2018 - [warning] shutdown_script is not defined.
+Fri Aug 24 02:00:38 2018 - [info] Got exit code 0 (Not master dead).
+
+MySQL Replication Health is OK.
+
 ```
 ### masterha_check_ssh        
 
 ```sql
+
+[root@node3 app1]# /etc/mha/mhamanager/bin/masterha_check_ssh --conf=/etc/mha/app1/app1.cnf 
+Thu Aug 23 15:14:27 2018 - [warning] Global configuration file /etc/masterha_default.cnf not found. Skipping.
+Thu Aug 23 15:14:27 2018 - [info] Reading application default configuration from /etc/mha/app1/app1.cnf..
+Thu Aug 23 15:14:27 2018 - [info] Reading server configuration from /etc/mha/app1/app1.cnf..
+Thu Aug 23 15:14:27 2018 - [info] Starting SSH connection tests..
+Thu Aug 23 15:14:29 2018 - [debug] 
+Thu Aug 23 15:14:27 2018 - [debug]  Connecting via SSH from root@192.168.2.61(192.168.2.61:22) to root@192.168.2.62(192.168.2.62:22)..
+Thu Aug 23 15:14:29 2018 - [debug]   ok.
+Thu Aug 23 15:14:29 2018 - [debug]  Connecting via SSH from root@192.168.2.61(192.168.2.61:22) to root@192.168.2.63(192.168.2.63:22)..
+Thu Aug 23 15:14:29 2018 - [debug]   ok.
+Thu Aug 23 15:14:29 2018 - [debug] 
+Thu Aug 23 15:14:28 2018 - [debug]  Connecting via SSH from root@192.168.2.63(192.168.2.63:22) to root@192.168.2.61(192.168.2.61:22)..
+Thu Aug 23 15:14:29 2018 - [debug]   ok.
+Thu Aug 23 15:14:29 2018 - [debug]  Connecting via SSH from root@192.168.2.63(192.168.2.63:22) to root@192.168.2.62(192.168.2.62:22)..
+Thu Aug 23 15:14:29 2018 - [debug]   ok.
+Thu Aug 23 15:14:29 2018 - [debug] 
+Thu Aug 23 15:14:28 2018 - [debug]  Connecting via SSH from root@192.168.2.62(192.168.2.62:22) to root@192.168.2.61(192.168.2.61:22)..
+Thu Aug 23 15:14:29 2018 - [debug]   ok.
+Thu Aug 23 15:14:29 2018 - [debug]  Connecting via SSH from root@192.168.2.62(192.168.2.62:22) to root@192.168.2.63(192.168.2.63:22)..
+Thu Aug 23 15:14:29 2018 - [debug]   ok.
+Thu Aug 23 15:14:29 2018 - [info] All SSH connection tests passed successfully.
 
 ```
 ### masterha_check_status     
