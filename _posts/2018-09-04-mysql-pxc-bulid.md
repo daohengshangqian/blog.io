@@ -10,6 +10,7 @@ description: MySQL PXC搭建
 ## 系统准备
 
 ### 安装EPEL
+
 ```sql
 
 
@@ -214,7 +215,8 @@ Transaction Summary
 ```
 
 ## 对PXC进行配置
-- node1 
+
+###  node1 
 ```sql
 
 
@@ -264,7 +266,8 @@ pid-file=/mysql1/mysql1.pid
 
 ```
 
-- node2
+### node2
+
 ```sql
 
 [root@node2 ~]# cat  /etc/my.cnf
@@ -317,7 +320,8 @@ pid-file=/mysql1/mysql1.pid
 
 
 
-- node3 
+###  node3 
+
 
 ```sql
 [root@node3 ~]# cat /etc/my.cnf
@@ -367,6 +371,8 @@ pid-file=/mysql1/mysql1.pid
 ```
 
 
+
+
 ### 在节点1初始化数据库
 
 ```sql
@@ -376,9 +382,22 @@ pid-file=/mysql1/mysql1.pid
 2018-09-04 22:05:40 [WARNING] mysql_install_db is deprecated. Please consider switching to mysqld --initialize
 
 ```
+### 创建同步用账户
 
+```sql
 
-## PXC 维护
+create user dao@'%' identified by 'dao' ;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> grant all on *.* to dao ;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> flush privileges ;
+Query OK, 0 rows affected (0.01 sec)
+
+```
+
+## PXC启动
 
 ### 启动PXC
 
