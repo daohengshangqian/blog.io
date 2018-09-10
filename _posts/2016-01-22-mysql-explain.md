@@ -33,6 +33,7 @@ ID列表明了该语句所在的层级
 其作用类似于Oracle执行计划中缩进
 
 ```sql
+
 mysql> explain SELECT * FROM EMP , DAO_OBJECTS1 t1 , DAO_OBJECTS2 t2  WHERE deptno= t1.object_id  AND  t1.object_name=t2.object_name   ;
 +----+-------------+-------+------+---------------+------+---------+------+-------+----------------------------------------------------+
 | id | select_type | table | type | possible_keys | key  | key_len | ref  | rows  | Extra                                              |
@@ -167,6 +168,7 @@ mysql> EXPLAIN
 ####  DEPENDENT UNION
 
 当子查询中存在UNION 时 UNION 后的SELECT TYPE 会出现 DEPENDENT UNION 而union 语句的第一行为 DEPENDENT SUBQUERY
+
 ```sql
 
 mysql> EXPLAIN SELECT * FROM  DEPT D WHERE D.DEPTNO IN (SELECT DEPTNO FROM EMP UNION SELECT OBJECT_ID FROM DAO_OBJECTS1)  ;
@@ -211,6 +213,7 @@ mysql> EXPLAIN SELECT * FROM  DEPT D WHERE D.DEPTNO IN ( SELECT OBJECT_ID FROM D
 ####  UNION RESULT
 
 ```sql
+
 mysql> EXPLAIN  SELECT OBJECT_ID FROM DAO_OBJECTS1 UNION SELECT DEPTNO FROM EMP  UNION  SELECT OBJECT_ID FROM DAO_OBJECTS2 ;
 +----+--------------+--------------+-------+---------------+-----------+---------+------+------+-----------------+
 | id | select_type  | table        | type  | possible_keys | key       | key_len | ref  | rows | Extra           |
