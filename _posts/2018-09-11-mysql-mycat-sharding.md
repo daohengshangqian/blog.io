@@ -1,22 +1,23 @@
 ---
 layout: post
 title: MySQL中使用mycat进行分库分表
-date: 2018-09-10
+date: 2018-09-11
 categories: blog
 tags: [MySQL]
 description: MySQL中使用mycat进行分库分表
 ---
 
-## Mycat安装
-
-###　规划
+##　规划
 
 节点名 | IP |角色 
  --- | --- | ---
 node1 | 192.168.2.61 | master  
-node1 | 192.168.2.61 | slave1 -->master  
-node1 | 192.168.2.61 | slave2 -->master  
-node1 | 192.168.2.61 | mycat  
+node2 | 192.168.2.62 | slave1 -->master  
+node3 | 192.168.2.63 | slave2 -->master  
+node4 | 192.168.2.64 | mycat  
+
+
+## Mycat安装
 
 
 ### 安装java
