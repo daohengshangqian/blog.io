@@ -402,6 +402,7 @@ Query OK, 0 rows affected (0.01 sec)
 ### 启动PXC
 
 - node1
+
 ```sql
 
 [root@node1 ~]# /etc/init.d/mysql  bootstrap-pxc
@@ -410,6 +411,7 @@ Bootstrapping PXC (Percona XtraDB Cluster)MySQL (Percona Xt[  OK  ]ster) running
 
 ```
 - node2
+
 ```sql
 
 
