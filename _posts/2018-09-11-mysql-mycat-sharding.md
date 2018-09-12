@@ -385,6 +385,7 @@ uid=501(mycat) gid=501(mycat) groups=501(mycat)
 ### 修改规则表
 
 - 添加规则dao-rule1 使其可以根据c1列分片
+
 ``` sql
 
 
@@ -547,6 +548,7 @@ Starting Mycat-server...
 ## 进行测试
 
 ### 在mycat中建表
+
 ```sql
 
 [mysql@node4 ~]$   mysql -uuser -puser -P8066 -h127.0.0.1  -Dmycatdb
@@ -643,7 +645,6 @@ Query OK, 1 row affected (0.02 sec)
 
 mysql> insert into dao_table1(c1,c2) values(3,3) ;
 Query OK, 1 row affected (0.02 sec)
-
 
 
 
