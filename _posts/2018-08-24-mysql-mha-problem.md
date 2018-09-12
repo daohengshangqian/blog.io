@@ -755,10 +755,10 @@ Query OK, 0 rows affected (0.00 sec)
  
  ```
  
- ### 问题验证
+### 问题验证
  
  
- ```sql
+```sql
  
 [root@node3 bin]# /etc/mha/mhamanager/bin/masterha_check_repl --conf=/etc/mha/app1/app1.cnf
 Fri Aug 24 13:48:06 2018 - [warning] Global configuration file /etc/masterha_default.cnf not found. Skipping.
@@ -849,7 +849,7 @@ MySQL Replication Health is OK.
 
  
  
- ```
+```
 
 ##  Getting advisory lock failed on the current master. MHA Monitor runs on the current master.
 
@@ -889,5 +889,3 @@ Fri Aug 24 17:56:55 2018 - [error][/usr/local/share/perl5/MHA/ManagerUtil.pm, ln
 ### 解决方法
 
 停止MHA Monitor
-
-### 问题验证
