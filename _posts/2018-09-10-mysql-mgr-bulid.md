@@ -33,7 +33,8 @@ Query OK, 0 rows affected (0.02 sec)
 
 ```
 
-##　修改配置文件
+## 修改配置文件
+
 
 ```sql
 
@@ -104,7 +105,7 @@ loose-group_replication_bootstrap_group    =off
 
 ```
 
-###　启动第一节点MGR
+### 启动第一节点MGR
 
 ```sql
 
@@ -224,9 +225,9 @@ TRANSACTIONS_COMMITTED_ALL_MEMBERS: a876d35e-9110-11e6-a365-842b2b5909d6:1-3
 
 ```
 
-##　将MGR从单主模式变为多主模式
+## 将MGR从单主模式变为多主模式
 
-###　停止MGR
+### 停止MGR
 
 - node3 
 
@@ -255,7 +256,7 @@ Query OK, 0 rows affected (1.02 sec)
 
 ```
 
-###　修改参数
+### 修改参数
 
 - node3 
 
@@ -287,7 +288,7 @@ Query OK, 0 rows affected (0.00 sec)
 
 ```
 
-###　启动MGR
+### 启动MGR
 
 - node1
 
@@ -318,7 +319,7 @@ Query OK, 0 rows affected (6.63 sec)
 
 ```
 
-###　查看各节点是否为主节点
+### 查看各节点是否为主节点
 
 
 - node1
