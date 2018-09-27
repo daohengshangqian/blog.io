@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  Oracle SQL TUNING ADVISOR
+title:  使用Oracle STA自动优化SQL
 date: 2018-03-06
 categories: blog
 tags: [Oracle]
-description: Oracle SQL TUNING ADVISOR
+description: 使用Oracle STA自动优化SQL
 ---
 
 # SQL TUNING ADVISOR 简介与架构
