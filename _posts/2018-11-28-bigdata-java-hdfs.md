@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 使用java读取hdfs上的文件
-date: 2018-11-24
+date: 2018-11-28
 categories: blog
 tags: [bigdata]
 description: 使用java读取hdfs上的文件
