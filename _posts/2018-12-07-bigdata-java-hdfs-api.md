@@ -79,7 +79,7 @@ public class TestHDFSApi {
 
 ## 验证
 
-###  初始
+###  初始 
 ···sql
 
 [root@node1 ~]# hdfs dfs -ls /
@@ -92,16 +92,16 @@ Found 2 items
 
 ### 调用readfile
 
-···sql
+```sql
 
 hello hadoop !
 
 
-···
+```
 
 ###  调用mkdir
 
-···sql
+```sql
 
 [root@node1 ~]# hdfs dfs -ls /
 Found 3 items
@@ -112,11 +112,11 @@ drwxr-xr-x   - dao  supergroup          0 2018-11-24 20:26 /daodir
 
 
 
-···
+```
 
 ### 调用put
 
-···sql
+```sql
 
 [root@node1 ~]# hdfs dfs -ls /
 Found 4 items
@@ -126,11 +126,11 @@ drwxr-xr-x   - dao  supergroup          0 2018-11-24 20:26 /daodir
 -rw-r--r--   3 root supergroup        153 2018-11-19 17:17 /xcall.sh
 
 
-···
+```
 
 ###  调用removeFile
 
-···sql
+```
 
 
 [root@node1 ~]# hdfs dfs -ls /
@@ -140,4 +140,4 @@ drwxr-xr-x   - dao  supergroup          0 2018-11-24 20:26 /daodir
 -rw-r--r--   3 root supergroup        153 2018-11-19 17:17 /xcall.sh
 
 
-···
+```
