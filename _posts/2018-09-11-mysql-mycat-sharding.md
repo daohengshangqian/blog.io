@@ -7,7 +7,7 @@ tags: [MySQL]
 description: MySQL中使用mycat进行分库分表
 ---
 
-##　规划
+## 规划
 
 节点名 | IP |角色 
  --- | --- | ---
