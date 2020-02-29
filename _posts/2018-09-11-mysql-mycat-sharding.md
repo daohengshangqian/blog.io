@@ -9,6 +9,7 @@ description: MySQL中使用mycat进行分库分表
 
 ## 规划
 
+
 节点名 | IP |角色 
  --- | --- | ---
 node1 | 192.168.2.61 | master  
