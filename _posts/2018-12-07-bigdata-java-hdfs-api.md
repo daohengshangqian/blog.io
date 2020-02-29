@@ -80,7 +80,8 @@ public class TestHDFSApi {
 ## 验证
 
 ###  初始 
-···sql
+
+```sql
 
 [root@node1 ~]# hdfs dfs -ls /
 Found 2 items
@@ -88,7 +89,7 @@ Found 2 items
 -rw-r--r--   3 root supergroup        153 2018-11-19 17:17 /xcall.sh
 
 
-···
+```
 
 ### 调用readfile
 
