@@ -8,12 +8,12 @@ description: MySQL5.6安装
 ---
 
 ## 创建文件夹
-···sql
+```sql
 [root@dao ~]# mkdir /usr/local/mysql
 [root@dao ~]# mkdir -p /data/mysql3306/data
 [root@dao ~]# mkdir -p /data/mysql3306/logs
 
-···
+```
 
 ## 安装依赖包
 
