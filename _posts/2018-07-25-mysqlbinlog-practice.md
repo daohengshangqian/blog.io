@@ -263,7 +263,7 @@ Query OK, 3 rows affected (0.02 sec)
 
 ### 无参数解析
 
-```sql
+````sql
 
 [mysql@bosenrui data]$ cat a.txt
 /*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=1*/;
