@@ -12,20 +12,21 @@ description: Oracle层次查询详解
 树形结构指的是数据元素之间存在着“一对多”的树形关系的数据结构，是一类重要的非线性数据结构。
 在树形结构中，树根结点没有前驱结点，其余每个结点有且只有一个前驱结点。叶子结点没有后续结点，其余每个结点的后续节点数可以是一个也可以是多个。
 
-##层次查询的概念
+## 层次查询的概念
 
 层次查询（Hierarchical Queries）就是通过一定的规则，使用树的遍历（tree walking）来获取树的层次关系数据的一种方法
 查询树形结构数据的父子关系，通过以下两个因素操纵树形结构的遍历
 1 遍历起始位置
 2 遍历扫描的规则 自上而下(Root->Branch->Leaf)自下而上(Leaf->Branch->Root)
 层次查询的语法
+```sql
  
 SELECT [level], column, expr... 
   FROM table | view
 [WHERE condition]
  START WITH condition(s)
  CONNECT BY [prior column1= column2 | column1 = prior column2 ...];
- 
+```` 
 
 ## 相关术语说明
 
