@@ -24,6 +24,7 @@ NFS server 192.16.10.23 notresponding still trying
 # 问题原因:
 
 ```sql
+
 参见MOS文档 When NFS Server Is Down, Oracle Server Freezes With No Errors In Alert Log File (文档 ID 1316251.1)  
   
 摘录部分以便解释  
@@ -37,4 +38,4 @@ Oracle源代码调用UNIX方法'getcwd'来获取当前工作目录。
 注：此时/下/archlog1目录不正常。  
 所以会使sqlplus hang  
 
-``
+```
