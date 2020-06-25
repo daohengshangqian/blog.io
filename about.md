@@ -33,7 +33,7 @@ header-img: "img/green.jpg"
 ## 近况:
 
 - 2011-2014  OneAPM 
-- 2014-至今  北京博森瑞科技有限公司 
+- 2014-2018  北京博森瑞科技有限公司 
 
 
 ## 联系方式:
@@ -42,9 +42,7 @@ QQ : 122252261
 
 E-MAIL :122252261@QQ.COM
 
-微信:
 
-![image](https://wx3.sinaimg.cn/mw1024/006Pv9mtly1fmy1f6y4s3j30e80e8dh8.jpg)
 
 
 
