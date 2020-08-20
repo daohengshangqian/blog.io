@@ -1,7 +1,7 @@
 ---
 layout: post
 title: hive安装
-date: 2020-02-29
+date: 2020-08-20
 categories: blog
 tags: [大数据]
 description: hive安装
