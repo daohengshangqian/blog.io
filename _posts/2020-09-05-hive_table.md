@@ -1,7 +1,7 @@
 ---
 layout: post
 title: hive表操作
-date: 2020-08-30
+date: 2020-09-05
 categories: blog
 tags: [大数据]
 description: hive表相关操作
