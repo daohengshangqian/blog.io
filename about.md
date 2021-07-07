@@ -13,7 +13,10 @@ header-img: "img/green.jpg"
 不必在乎我是谁，聊技术就好。
 
 
-Talk is cheap， show me the code~
+Talk is cheap， show me the code！
+Talk is cheap， show me the data！
+Talk is cheap， show me the log ！
+
 
 
 
